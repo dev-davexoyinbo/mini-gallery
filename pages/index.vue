@@ -4,10 +4,10 @@
       <form action="" class="header-form">
         <div class="form-group">
           <input
+            id="search-input"
             v-model="inputString"
             type="text"
             class="search-input"
-            id="search-input"
             placeholder="Search for photo"
           />
           <label for="search-input" class="icon-container"
@@ -27,31 +27,31 @@
         </div>
       </form>
       <transition name="fade">
-        <p class="search-highlight" v-show="inputString">
+        <p v-show="inputString" class="search-highlight">
           Search Results for <span class="keyword">"{{ inputString }}"</span>
         </p>
       </transition>
     </header>
 
     <image-loading-skeletons
-      :columnCount="columnCount"
       v-show="$fetchState.pending"
+      :column-count="columnCount"
     />
     <section class="container">
-      <div class="photo-main-container" ref="photoMainContainer">
+      <div ref="photoMainContainer" class="photo-main-container">
         <div
           v-for="(images, i) in displayingPhotosMatrix"
-          :key="i"
           v-show="!$fetchState.pending"
+          :key="i"
         >
           <div v-for="image in images" :key="image.id">
-            <image-widget @open="openImageModal(image)" :image="image" />
+            <image-widget :image="image" @open="openImageModal(image)" />
           </div>
         </div>
       </div>
     </section>
 
-    <image-modal-widget :image="stagingImage" v-model="showModal" />
+    <image-modal-widget v-model="showModal" :image="stagingImage" />
   </div>
 </template>
 
@@ -63,8 +63,8 @@ import ImageModalWidget from '~/components/widgets/ImageModalWidget.vue'
 import ImageLoadingSkeletons from '~/components/ImageLoadingSkeletons.vue'
 
 export default Vue.extend({
-  components: { ImageWidget, ImageModalWidget, ImageLoadingSkeletons },
   name: 'IndexPage',
+  components: { ImageWidget, ImageModalWidget, ImageLoadingSkeletons },
   data() {
     return {
       showModal: false,
@@ -101,9 +101,6 @@ export default Vue.extend({
         })
       })
   },
-  mounted() {
-    this.observeTheSizeOfPhotoContainer()
-  },
   computed: {
     displayingPhotosMatrix(): Array<Array<any>> {
       const returnVal = []
@@ -132,6 +129,9 @@ export default Vue.extend({
             `${this.defaultRelativePath}?orientation=portrait&per_page=${this.perPage}`)
       )
     },
+  },
+  mounted() {
+    this.observeTheSizeOfPhotoContainer()
   },
   methods: {
     observeTheSizeOfPhotoContainer() {

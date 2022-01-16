@@ -18,6 +18,11 @@
 import Vue from 'vue'
 export default Vue.extend({
   name: 'ImageModalWidget',
+
+  model: {
+    prop: 'showModal',
+    event: 'input',
+  },
   props: {
     showModal: {
       type: Boolean,
@@ -26,16 +31,6 @@ export default Vue.extend({
     image: {
       type: Object,
       default: () => ({}),
-    },
-  },
-
-  model: {
-    prop: 'showModal',
-    event: 'input',
-  },
-  methods: {
-    closeModal() {
-      this.$emit('input', false)
     },
   },
 
@@ -52,6 +47,11 @@ export default Vue.extend({
     },
     location(): any {
       return this.user.location
+    },
+  },
+  methods: {
+    closeModal() {
+      this.$emit('input', false)
     },
   },
 })

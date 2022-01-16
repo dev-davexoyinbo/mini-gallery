@@ -85,8 +85,6 @@ export default Vue.extend({
     }
   },
   async fetch() {
-    console.log('fetching data')
-    console.log(this.queryString)
     await this.$axios
       .$get(this.queryString, {
         headers: {
@@ -164,7 +162,6 @@ export default Vue.extend({
       this.searchString = value
     }, 500),
     openImageModal(image: any) {
-      console.log('Open the modal')
       this.stagingImage = image
       this.showModal = true
     },

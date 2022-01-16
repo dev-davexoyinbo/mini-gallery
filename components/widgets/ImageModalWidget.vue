@@ -6,13 +6,14 @@
       </button>
       <div class="image-container">
         <!-- The v-if is added because it would be better if it were not showing (and loading) than the previous image -->
-        <img v-if="showModal" :src="url" alt="" />
+        <img :src="url" alt="" />
       </div>
       <div class="description">
         <p class="name">{{ name }}</p>
         <p class="location">{{ location }}</p>
       </div>
     </div>
+    <div class="overlay" @click="closeModal"></div>
   </div>
 </template>
 <script lang="ts">
@@ -62,7 +63,7 @@ export default Vue.extend({
 // Open state
 .image-modal-widget.open {
   pointer-events: unset;
-  &::before {
+  .overlay {
     opacity: 1;
   }
 
@@ -86,8 +87,9 @@ export default Vue.extend({
   padding: 3%;
   pointer-events: none;
 
-  &::before {
-    content: '';
+  .overlay {
+    // content: '';
+    display: block;
     opacity: 0;
     position: absolute;
     top: 0;

@@ -27,8 +27,9 @@
         </div>
       </form>
       <transition name="fade">
-        <p v-show="inputString" class="search-highlight">
-          Search Results for <span class="keyword">"{{ inputString }}"</span>
+        <p v-show="searchString" class="search-highlight">
+          {{ $fetchState.pending ? 'Searching for' : 'Search Results for ' }}
+          <span class="keyword">"{{ inputString }}"</span>
         </p>
       </transition>
     </header>
@@ -49,6 +50,12 @@
           </div>
         </div>
       </div>
+    </section>
+    <section
+      v-if="!$fetchState.pending && displayingPhotosMatrix.length == 0"
+      class="container"
+    >
+      <p class="search-highlight no-results">No Results</p>
     </section>
 
     <image-modal-widget v-model="showModal" :image="stagingImage" />
@@ -124,7 +131,7 @@ export default Vue.extend({
           ? // If there is a search string, use the search endpoint
             `${this.relativeSearchUrl}?per_page=${
               this.perPage
-            }&query=${encodeURI(this.searchString)}`
+            }&orientation=portrait&query=${encodeURI(this.searchString)}`
           : // if not use the photos endpoint
             `${this.defaultRelativePath}?orientation=portrait&per_page=${this.perPage}`)
       )
@@ -221,6 +228,10 @@ header.container {
   font-weight: 500;
   font-size: 2rem;
 
+  &.no-results {
+    text-align: center;
+    color: #788498;
+  }
   .keyword {
     color: #788498;
   }

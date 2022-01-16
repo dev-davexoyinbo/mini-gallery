@@ -1,15 +1,23 @@
 module.exports = {
-  root: true,
+  root: false,
   env: {
     browser: true,
     node: true,
   },
   extends: [
     '@nuxtjs/eslint-config-typescript',
+    'plugin:prettier/recommended',
     'plugin:nuxt/recommended',
-    'prettier',
   ],
   plugins: [],
   // add your custom rules here
-  rules: {},
+  rules: {
+    'vue/attribute-hyphenation': [
+      'error',
+      'never',
+      {
+        ignore: [],
+      },
+    ],
+  },
 }

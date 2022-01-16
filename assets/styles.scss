@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+html {
+  font-family: 'Poppins', sans-serif;
+  font-family: 'Roboto', sans-serif;
+  color: #343b47;
+}
+
+.container {
+  max-width: unset;
+  padding-left: 5%;
+  padding-right: 5%;
+  display: grid;
+  grid-template-columns: minmax(auto, 1200px);
+  justify-content: center;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}

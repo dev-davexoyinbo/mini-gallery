@@ -1,4 +1,10 @@
+import redirectSSL from 'redirect-ssl'
+
 export default {
+  server: {
+    host: '0.0.0.0',
+    // port: 3000,
+  },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'mini-gallery',
@@ -48,4 +54,10 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+  serverMiddleware: [
+    { path: '/auth', handler: '~/server-middleware/passport.ts' },
+    redirectSSL.create({
+      enabled: process.env.NODE_ENV === 'production',
+    }),
+  ],
 }

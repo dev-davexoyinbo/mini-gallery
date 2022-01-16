@@ -13,6 +13,9 @@ export default {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
+  env: {
+    UNSPLASH_ACCESS_KEY: process.env.UNSPLASH_ACCESS_KEY,
+  },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: ['~assets/styles.scss'],

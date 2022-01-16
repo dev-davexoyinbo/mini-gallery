@@ -21,3 +21,28 @@ html {
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
 }
+
+
+// main photo-container
+
+.photo-main-container {
+  display: grid;
+  column-gap: 2rem;
+  row-gap: 1rem;
+
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  margin-top: -2.5rem;
+
+  & > * {
+    align-self: start;
+    display: grid;
+    row-gap: 1rem;
+  }
+
+  // for screens larger than 768px (tablet)
+  // make allowance for inset paddings
+  @media only screen and (min-width: 768px) {
+    padding-right: 5%;
+    padding-left: 5%;
+  }
+}

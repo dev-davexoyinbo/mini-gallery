@@ -7,17 +7,27 @@ export default {
   },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'mini-gallery',
+    title: 'Mini Gallery',
     htmlAttrs: {
       lang: 'en',
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'mini version of unsplash gallery by Oyinbo David Bayode',
+      },
+      { hid: 'author', name: 'author', content: 'Oyinbo David Bayode' },
+      {
+        hid: 'keywords',
+        name: 'keywords',
+        content: 'HTML, CSS, JavaScript, Typescript, Vue.js, Nuxt.js',
+      },
       { name: 'format-detection', content: 'telephone=no' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [{ rel: 'icon', type: 'image/svg', href: '/logo.svg' }],
   },
   env: {
     UNSPLASH_ACCESS_KEY: process.env.UNSPLASH_ACCESS_KEY,
@@ -55,7 +65,6 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
   serverMiddleware: [
-    { path: '/auth', handler: '~/server-middleware/passport.ts' },
     redirectSSL.create({
       enabled: process.env.NODE_ENV === 'production',
     }),

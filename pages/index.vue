@@ -130,6 +130,14 @@ export default Vue.extend({
       )
     },
   },
+  watch: {
+    queryString() {
+      this.$fetch()
+    },
+    inputString(value: string) {
+      this.handleSearchInput(value)
+    },
+  },
   mounted() {
     this.observeTheSizeOfPhotoContainer()
   },
@@ -164,14 +172,6 @@ export default Vue.extend({
     openImageModal(image: any) {
       this.stagingImage = image
       this.showModal = true
-    },
-  },
-  watch: {
-    queryString() {
-      this.$fetch()
-    },
-    inputString(value: string) {
-      this.handleSearchInput(value)
     },
   },
 })

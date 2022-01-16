@@ -5,7 +5,8 @@
         &times;
       </button>
       <div class="image-container">
-        <img :src="url" alt="" />
+        <!-- The v-if is added because it would be better if it were not showing (and loading) than the previous image -->
+        <img v-if="showModal" :src="url" alt="" />
       </div>
       <div class="description">
         <p class="name">{{ name }}</p>
@@ -36,7 +37,7 @@ export default Vue.extend({
 
   computed: {
     url(): string {
-      return !this.image ? '' : (this.image as any).urls?.full || ''
+      return !this.image ? '' : (this.image as any).urls?.regular || ''
     },
     user(): any {
       return (this.image as any)?.user || {}

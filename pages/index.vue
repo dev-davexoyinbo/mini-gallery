@@ -57,7 +57,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import _, { entries } from 'lodash'
+import _ from 'lodash'
 import ImageWidget from '~/components/widgets/ImageWidget.vue'
 import ImageModalWidget from '~/components/widgets/ImageModalWidget.vue'
 import ImageLoadingSkeletons from '~/components/ImageLoadingSkeletons.vue'

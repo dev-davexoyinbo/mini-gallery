@@ -88,7 +88,7 @@ export default Vue.extend({
       serverPhotos: [],
 
       columnCount: 3,
-      perPage: 15,
+      perPage: 32,
     }
   },
   async fetch() {

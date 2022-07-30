@@ -11,6 +11,8 @@ url: https://mini-gallery.herokuapp.com/
 ![image](https://user-images.githubusercontent.com/67616046/149683052-d0566f0c-3891-492d-a8be-cb5a21dbe989.png)
 ![image](https://user-images.githubusercontent.com/67616046/149683064-e89a46da-09b4-4852-9d85-c9c9cba74784.png)
 ![image](https://user-images.githubusercontent.com/67616046/149683102-cfa2201d-4fab-46d1-b53a-ef4e5ae539cb.png)
+![image](https://user-images.githubusercontent.com/67616046/181878324-0878bbdb-5d46-4496-ae97-8ab9b6e85bb8.png)
+![image](https://user-images.githubusercontent.com/67616046/181878347-bb7ccb13-edc3-4513-9886-fc2648b9c81d.png)
 
 ## Build Setup
 
